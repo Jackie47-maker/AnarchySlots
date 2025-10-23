@@ -1,1 +1,903 @@
-mgggvghhjnnnbvfddcbnmmbvvvbhhhhh
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 ANARCHY SLOTS</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #4a0000 50%, #000000 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-300px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes crownFall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(200px) rotate(720deg); opacity: 0; }
+        }
+        
+        @keyframes slump {
+            to { transform: translateY(40px) scale(0.8) rotate(-10deg); opacity: 0.3; }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes smirk {
+            0%, 100% { transform: rotate(15deg) scaleX(1); }
+            50% { transform: rotate(18deg) scaleX(1.1); }
+        }
+        
+        .tyrant {
+            position: fixed;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.15);
+            z-index: 1000;
+            animation: slideDown 2.5s ease-out, float 4s ease-in-out 2.5s infinite;
+            filter: drop-shadow(0 3px 8px rgba(255, 100, 0, 0.5));
+        }
+        
+        .tyrant.losing {
+            animation: slump 1s ease-out forwards;
+        }
+        
+        .crown-container {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px;
+            z-index: 10;
+        }
+        
+        .crown-container.falling {
+            animation: crownFall 1.5s ease-in forwards;
+        }
+        
+        .character {
+            position: relative;
+            width: 120px;
+        }
+        
+        .hair {
+            position: absolute;
+            top: -5px;
+            left: 15px;
+            width: 90px;
+            height: 35px;
+            z-index: 5;
+        }
+        
+        .hair-tuft {
+            position: absolute;
+            width: 12px;
+            height: 28px;
+            background: linear-gradient(180deg, #ff9933 0%, #ff7700 100%);
+            border-radius: 6px 6px 0 0;
+            transform-origin: bottom;
+        }
+        
+        .hair-tuft:nth-child(1) { left: 0; transform: rotate(-15deg); }
+        .hair-tuft:nth-child(2) { left: 13px; transform: rotate(-8deg); }
+        .hair-tuft:nth-child(3) { left: 26px; transform: rotate(-2deg); }
+        .hair-tuft:nth-child(4) { left: 39px; transform: rotate(2deg); }
+        .hair-tuft:nth-child(5) { left: 52px; transform: rotate(8deg); }
+        .hair-tuft:nth-child(6) { left: 65px; transform: rotate(15deg); }
+        
+        .head {
+            width: 100px;
+            height: 110px;
+            background: linear-gradient(135deg, #ffb366 0%, #ff8833 100%);
+            border-radius: 50px 50px 45px 45px;
+            border: 5px solid #cc6600;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .wrinkle {
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: rgba(180, 80, 0, 0.3);
+            border-radius: 2px;
+        }
+        
+        .wrinkle1 { top: 25px; left: 15px; width: 20px; }
+        .wrinkle2 { top: 25px; right: 15px; width: 20px; }
+        .wrinkle3 { top: 30px; left: 12px; width: 25px; }
+        .wrinkle4 { top: 30px; right: 12px; width: 25px; }
+        
+        .eyes {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 25px;
+        }
+        
+        .eye {
+            width: 8px;
+            height: 10px;
+            background: #1a1a1a;
+            border-radius: 50%;
+        }
+        
+        .nose {
+            position: absolute;
+            top: 58px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 22px;
+            background: linear-gradient(135deg, #ff9944 0%, #ff7722 100%);
+            border-radius: 50% 50% 60% 60%;
+            border: 2px solid #cc6600;
+        }
+        
+        .mouth {
+            position: absolute;
+            top: 75px;
+            left: 38px;
+            width: 40px;
+            height: 12px;
+            border-bottom: 4px solid #8b4513;
+            border-right: 3px solid #8b4513;
+            border-radius: 0 0 30px 5px;
+            transform: rotate(15deg);
+            animation: smirk 2s ease-in-out infinite;
+        }
+        
+        .mouth.sad {
+            border-bottom: 4px solid #666;
+            border-right: 2px solid #666;
+            border-radius: 0 0 10px 0;
+            transform: rotate(0deg);
+            animation: none;
+        }
+        
+        .neck {
+            width: 50px;
+            height: 30px;
+            background: linear-gradient(180deg, #ff9944 0%, #ff8833 100%);
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .cape {
+            position: absolute;
+            top: 115px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 180px;
+            background: linear-gradient(180deg, #6600cc 0%, #4400aa 80%, #330088 100%);
+            border-radius: 0 0 75px 75px;
+            border: 6px solid #5500bb;
+            z-index: 1;
+        }
+        
+        .cape::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            height: 40px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            border-radius: 50%;
+        }
+        
+        .shoulders {
+            position: relative;
+            width: 120px;
+            height: 40px;
+            margin: 0 auto;
+            z-index: 2;
+        }
+        
+        .shoulder {
+            position: absolute;
+            width: 50px;
+            height: 40px;
+            background: linear-gradient(180deg, #cc0000 0%, #990000 100%);
+            border-radius: 10px;
+        }
+        
+        .shoulder.left { left: 0; }
+        .shoulder.right { right: 0; }
+        
+        .scepter {
+            position: absolute;
+            top: 100px;
+            right: -50px;
+            width: 8px;
+            height: 100px;
+            background: linear-gradient(180deg, #ffdd00 0%, #cc9900 100%);
+            transform: rotate(45deg);
+            border-radius: 4px;
+            z-index: 20;
+        }
+        
+        .scepter::before {
+            content: '⭐';
+            position: absolute;
+            top: -25px;
+            left: -15px;
+            font-size: 35px;
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 50px 20px 20px;
+        }
+        
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .title h1 {
+            font-size: 48px;
+            background: linear-gradient(90deg, #ff0000, #ffffff, #0000ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 32px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        
+        .tagline1 { color: white; }
+        .tagline2 { color: #ff3333; }
+        
+        .stats {
+            background: rgba(0,0,0,0.7);
+            border: 2px solid #aa0000;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .coin-display {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        
+        .slot-machine {
+            background: linear-gradient(180deg, #aa0000 0%, #000000 100%);
+            border: 4px solid #ff0000;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .win-message {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff3333;
+            margin-bottom: 20px;
+            animation: bounce 1s infinite;
+        }
+        
+        .reels {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            background: black;
+            border: 4px solid #aa0000;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .reel {
+            background: #1a1a1a;
+            border: 2px solid #aa0000;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            font-size: 60px;
+        }
+        
+        .controls {
+            margin-bottom: 20px;
+        }
+        
+        .bet-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .bet-btn {
+            background: #aa0000;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .bet-btn:active {
+            background: #660000;
+        }
+        
+        .bet-display {
+            background: black;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .spin-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #ff0000, #ff6600);
+            color: white;
+            border: 4px solid #ff3333;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            border-radius: 15px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        
+        .spin-btn:active {
+            background: linear-gradient(90deg, #cc0000, #cc4400);
+        }
+        
+        .spin-btn:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+        
+        .music-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #0044aa 0%, #6600cc 100%);
+            color: white;
+            border: 3px solid #0066ff;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .music-btn:active {
+            background: linear-gradient(135deg, #003388 0%, #4400aa 100%);
+        }
+
+        .buy-coins-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #00aa44 0%, #00cc66 100%);
+            color: white;
+            border: 3px solid #00ff66;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .buy-coins-btn:active {
+            background: linear-gradient(135deg, #008833 0%, #00aa44 100%);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 3000;
+            overflow-y: auto;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a0000 0%, #440000 100%);
+            border: 4px solid #ff0000;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff3333;
+        }
+
+        .close-btn {
+            background: #cc0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .package {
+            background: rgba(0,0,0,0.6);
+            border: 3px solid #aa0000;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .package.popular {
+            border-color: #ffcc00;
+        }
+
+        .package.best {
+            border-color: #cc00ff;
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px 15px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .badge-popular {
+            background: #ffcc00;
+            color: black;
+        }
+
+        .badge-best {
+            background: #cc00ff;
+            color: white;
+        }
+
+        .package-coins {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            margin: 10px 0;
+        }
+
+        .package-bonus {
+            font-size: 16px;
+            color: #00ff66;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .package-price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff3333;
+            margin: 10px 0;
+        }
+
+        .buy-package-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ff0000 0%, #ff6600 100%);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .buy-package-btn:active {
+            background: linear-gradient(135deg, #cc0000 0%, #cc4400 100%);
+        }
+        
+        .music-credit {
+            font-size: 14px;
+            margin-top: 8px;
+            color: #ccccff;
+        }
+        
+        .footer {
+            background: rgba(139, 0, 0, 0.5);
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .hidden {
+            display: none;
+        }
+
+        .sound-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            border: 2px solid #ff0000;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 2000;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button class="sound-toggle" onclick="toggleSound()" id="soundBtn">🔊</button>
+
+    <div class="tyrant" id="tyrant">
+        <div class="crown-container" id="crownContainer">👑</div>
+        <div class="character">
+            <div class="hair">
+                <div class="hair-tuft"></div>
+                <div class="hair-tuft"></div>
+                <div class="hair-tuft"></div>
+                <div class="hair-tuft"></div>
+                <div class="hair-tuft"></div>
+                <div class="hair-tuft"></div>
+            </div>
+            <div class="head">
+                <div class="wrinkle wrinkle1"></div>
+                <div class="wrinkle wrinkle2"></div>
+                <div class="wrinkle wrinkle3"></div>
+                <div class="wrinkle wrinkle4"></div>
+                <div class="eyes">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                </div>
+                <div class="nose"></div>
+                <div class="mouth" id="mouth"></div>
+            </div>
+            <div class="neck"></div>
+            <div class="shoulders">
+                <div class="shoulder left"></div>
+                <div class="shoulder right"></div>
+            </div>
+            <div class="cape"></div>
+            <div class="scepter"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="title">
+            <h1>🔥 ANARCHY SLOTS 🔥</h1>
+            <div class="tagline">
+                <div class="tagline1">NO KINGS.</div>
+                <div class="tagline2">JUST WINNERS.</div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="coin-display" id="coins">5000 COINS</div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="win-message hidden" id="winMessage"></div>
+            <div class="reels">
+                <div class="reel" id="reel0">🔥</div>
+                <div class="reel" id="reel1">👑</div>
+                <div class="reel" id="reel2">🇺🇸</div>
+            </div>
+            <div class="controls">
+                <div class="bet-control">
+                    <button class="bet-btn" onclick="decreaseBet()">-</button>
+                    <div class="bet-display">BET: <span id="betAmount">10</span></div>
+                    <button class="bet-btn" onclick="increaseBet()">+</button>
+                </div>
+                <button class="spin-btn" id="spinBtn" onclick="spin()">🔥 REVOLT NOW 🔥</button>
+            </div>
+        </div>
+
+        <button class="music-btn" onclick="playMusic()">
+            🎵 PLAY VIDEO: "Anarchy 2025" by Nu York Life
+            <div class="music-credit">Music & Lyrics: Chi-Town Ben Franklin</div>
+        </button>
+
+        <button class="buy-coins-btn" onclick="showStore()">💰 BUY COINS</button>
+
+        <div class="footer">
+            <p><strong>🔥 INSPIRED BY "ANARCHY 2025" 🔥</strong></p>
+            <p style="font-size: 12px; margin-top: 10px;">100% Legal • Virtual Coins Only • No Gambling</p>
+        </div>
+    </div>
+
+    <div class="modal" id="storeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">🔥 FUEL THE REVOLUTION</div>
+                <button class="close-btn" onclick="closeStore()">✕ CLOSE</button>
+            </div>
+            <div class="packages-grid">
+                <div class="package">
+                    <div class="package-coins">1,000</div>
+                    <div class="package-price">$0.99</div>
+                    <button class="buy-package-btn" onclick="buyPackage(1000, 0.99, 0)">BUY NOW</button>
+                </div>
+                <div class="package popular">
+                    <div class="badge badge-popular">POPULAR</div>
+                    <div class="package-coins">2,500</div>
+                    <div class="package-bonus">+500 BONUS</div>
+                    <div class="package-price">$1.99</div>
+                    <button class="buy-package-btn" onclick="buyPackage(2500, 1.99, 500)">BUY NOW</button>
+                </div>
+                <div class="package">
+                    <div class="package-coins">5,000</div>
+                    <div class="package-bonus">+1,000 BONUS</div>
+                    <div class="package-price">$3.99</div>
+                    <button class="buy-package-btn" onclick="buyPackage(5000, 3.99, 1000)">BUY NOW</button>
+                </div>
+                <div class="package">
+                    <div class="package-coins">12,000</div>
+                    <div class="package-bonus">+3,000 BONUS</div>
+                    <div class="package-price">$7.99</div>
+                    <button class="buy-package-btn" onclick="buyPackage(12000, 7.99, 3000)">BUY NOW</button>
+                </div>
+                <div class="package best">
+                    <div class="badge badge-best">BEST VALUE</div>
+                    <div class="package-coins">25,000</div>
+                    <div class="package-bonus">+7,500 BONUS</div>
+                    <div class="package-price">$14.99</div>
+                    <button class="buy-package-btn" onclick="buyPackage(25000, 14.99, 7500)">BUY NOW</button>
+                </div>
+                <div class="package">
+                    <div class="package-coins">60,000</div>
+                    <div class="package-bonus">+20,000 BONUS</div>
+                    <div class="package-price">$29.99</div>
+                    <button class="buy-package-btn" onclick="buyPackage(60000, 29.99, 20000)">BUY NOW</button>
+                </div>
+            </div>
+            <div style="background: rgba(0,200,0,0.2); border: 2px solid #00ff00; border-radius: 10px; padding: 15px; text-align: center;">
+                <p style="color: white; font-size: 14px;">🔒 Secure Stripe Payments • 100% Legal Entertainment</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let coins = 5000;
+        let bet = 10;
+        let spinning = false;
+        let soundOn = true;
+        const symbols = ['🔥', '👑', '🇺🇸', '⭐', '⚡', '🏆'];
+        const values = [2, 5, 10, 20, 50, 100];
+        let audioContext;
+
+        const STRIPE_LINKS = {
+            1000: 'https://buy.stripe.com/28E8wQ1AV5ms1Ti0Aw2wU06',
+            2500: 'https://buy.stripe.com/fZudRa3J316ccxW0Aw2wU07',
+            5000: 'https://buy.stripe.com/4gM28scfz4iobtS1EA2wU04',
+            12000: 'https://buy.stripe.com/6oU9AUcfzg16btSbfa2wU02',
+            25000: 'https://buy.stripe.com/dRm8wQ3J3g162Xmcje2wU01',
+            60000: 'https://buy.stripe.com/aFa00kfrL2agcxWab62wU00'
+        };
+
+        function initAudio() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function playTone(frequency, duration, volume = 0.3) {
+            if (!soundOn) return;
+            initAudio();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            oscillator.frequency.value = frequency;
+            gainNode.gain.setValueAtTime(volume, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + duration);
+        }
+
+        function toggleSound() {
+            soundOn = !soundOn;
+            document.getElementById('soundBtn').textContent = soundOn ? '🔊' : '🔇';
+            if (soundOn) playTone(400, 0.1);
+        }
+
+        setTimeout(() => {
+            if (!sessionStorage.getItem('music_played')) {
+                if (confirm('🎵 Watch "Anarchy 2025" by Nu York Life?\n\nMusic & Lyrics: Chi-Town Ben Franklin\n\nClick OK to open video!')) {
+                    window.open('https://www.facebook.com/share/v/1FeqtzAiZE/', '_blank');
+                }
+                sessionStorage.setItem('music_played', 'true');
+            }
+        }, 3000);
+
+        function updateDisplay() {
+            document.getElementById('coins').textContent = coins + ' COINS';
+            document.getElementById('betAmount').textContent = bet;
+        }
+
+        function decreaseBet() {
+            if (bet > 10) {
+                bet -= 10;
+                updateDisplay();
+                playTone(300, 0.05);
+            }
+        }
+
+        function increaseBet() {
+            if (bet < 500) {
+                bet += 10;
+                updateDisplay();
+                playTone(400, 0.05);
+            }
+        }
+
+        function playMusic() {
+            window.open('https://www.facebook.com/share/v/1FeqtzAiZE/', '_blank');
+            playTone(600, 0.2);
+        }
+
+        function showStore() {
+            document.getElementById('storeModal').classList.add('show');
+            playTone(400, 0.1);
+        }
+
+        function closeStore() {
+            document.getElementById('storeModal').classList.remove('show');
+            playTone(300, 0.1);
+        }
+
+        function buyPackage(coinAmount, price, bonus) {
+            const totalCoins = coinAmount + bonus;
+            const stripeLink = STRIPE_LINKS[coinAmount];
+            localStorage.setItem('anarchy_pending_coins', totalCoins);
+            localStorage.setItem('anarchy_coins', coins);
+            window.location.href = stripeLink;
+        }
+
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                const pendingCoins = localStorage.getItem('anarchy_pending_coins');
+                const savedCoins = localStorage.getItem('anarchy_coins');
+                if (pendingCoins && savedCoins) {
+                    coins = parseInt(savedCoins) + parseInt(pendingCoins);
+                    updateDisplay();
+                    alert('🔥 PAYMENT SUCCESS!\n\n+' + parseInt(pendingCoins).toLocaleString() + ' coins added!\n\nLet the revolution continue!');
+                    localStorage.removeItem('anarchy_pending_coins');
+                    localStorage.removeItem('anarchy_coins');
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+            }
+        });
+
+        function spin() {
+            if (spinning || coins < bet) return;
+            initAudio();
+            coins -= bet;
+            spinning = true;
+            updateDisplay();
+            document.getElementById('winMessage').classList.add('hidden');
+            document.getElementById('tyrant').classList.remove('losing');
+            document.getElementById('crownContainer').classList.remove('falling');
+            document.getElementById('mouth').classList.remove('sad');
+            document.getElementById('spinBtn').textContent = '🔥 REVOLTING... 🔥';
+            document.getElementById('spinBtn').disabled = true;
+            playTone(200, 0.1);
+            let count = 0;
+            const spinInterval = setInterval(() => {
+                document.getElementById('reel0').textContent = symbols[Math.floor(Math.random() * 6)];
+                document.getElementById('reel1').textContent = symbols[Math.floor(Math.random() * 6)];
+                document.getElementById('reel2').textContent = symbols[Math.floor(Math.random() * 6)];
+                playTone(250, 0.05, 0.1);
+                count++;
+                if (count > 20) {
+                    clearInterval(spinInterval);
+                    checkWin();
+                }
+            }, 100);
+        }
+
+        function checkWin() {
+            const r0 = symbols.indexOf(document.getElementById('reel0').textContent);
+            const r1 = symbols.indexOf(document.getElementById('reel1').textContent);
+            const r2 = symbols.indexOf(document.getElementById('reel2').textContent);
+            let winAmount = 0;
+            if (r0 === r1 && r1 === r2) {
+                winAmount = values[r0] * bet;
+            } else if (r0 === r1 || r1 === r2 || r0 === r2) {
+                const match = r0 === r1 ? r0 : r1;
+                winAmount = Math.floor(values[match] * bet * 0.3);
+            }
+            if (winAmount > 0) {
+                coins += winAmount;
+                document.getElementById('winMessage').textContent = '🔥 VICTORY! +' + winAmount + ' 🔥';
+                document.getElementById('winMessage').classList.remove('hidden');
+                document.getElementById('tyrant').classList.add('losing');
+                document.getElementById('crownContainer').classList.add('falling');
+                document.getElementById('mouth').classList.add('sad');
+                if (winAmount > bet * 10) {
+                    playTone(500, 0.15);
+                    setTimeout(() => playTone(600, 0.15), 100);
+                    setTimeout(() => playTone(700, 0.2), 200);
+                } else {
+                    playTone(450, 0.2);
+                    setTimeout(() => playTone(550, 0.2), 150);
+                }
+                setTimeout(() => {
+                    document.getElementById('tyrant').classList.remove('losing');
+                    document.getElementById('crownContainer').classList.remove('falling');
+                    document.getElementById('mouth').classList.remove('sad');
+                }, 2500);
+            } else {
+                playTone(150, 0.3, 0.2);
+            }
+            spinning = false;
+            updateDisplay();
+            document.getElementById('spinBtn').textContent = '🔥 REVOLT NOW 🔥';
+            document.getElementById('spinBtn').disabled = false;
+        }
+
+        document.addEventListener('click', initAudio, { once: true });
+    </script>
+</body>
+</htmll>     Updated Stripe links+ final HTML improvements 
